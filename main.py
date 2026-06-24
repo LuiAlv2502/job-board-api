@@ -1,8 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Depends
 from database import init_db
+from pydantic import BaseModel
+from typing import List, Annotated
 
 app = FastAPI()
 
+class ChoiceBase(BaseModel):
+    choice_text: str
+    is_correct: bool
+
+class QuestionBase(BaseModel):
+    question_text: str
+    choices: List[ChoiceBase]
 
 @app.on_event("startup")
 def on_startup() -> None:
