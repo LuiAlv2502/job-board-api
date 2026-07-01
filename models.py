@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Text, TIMESTAMP, ForeignKey, Uni
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
-from db import Base
+from database import Base
 
 
 class Applicant(Base):
